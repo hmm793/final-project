@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  port: 'http://localhost:3000',
+  port: 'https://resonant-goods-338209.et.r.appspot.com',
 };
 
 /*
