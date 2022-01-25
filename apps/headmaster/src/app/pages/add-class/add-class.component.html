@@ -1,0 +1,53 @@
+<mat-tab-group>
+  <mat-tab label="Add Student">
+    <div class="title"><p>Class</p></div>
+    <div class="route">
+      <p>Home <span> > Add New Class</span></p>
+    </div>
+    <div class="container">
+      <form [formGroup]="form!">
+        <div class="name-form"><p>Add New Class</p></div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Class Name</label
+          >
+          <input
+            formControlName="class_name"
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>Teacher</mat-label>
+            <mat-select [(value)]="selectedTeacher">
+              <mat-option
+                *ngFor="let teacher of allTeacher"
+                [value]="teacher._id"
+                >{{ teacher.first_name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          {{ selectedTeacher }}
+        </div>
+        <div class="mb-3">
+          <mat-form-field appearance="fill">
+            <mat-label>subject</mat-label>
+            <mat-select [(value)]="selectedValue" multiple>
+              <mat-option
+                *ngFor="let subject of allSubject"
+                [value]="subject._id"
+                >{{ subject.subject_name }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          {{ selectedValue }}
+        </div>
+        <div class="mb-3">
+          <button class="save" (click)="submitData()"><p>Save</p></button>
+        </div>
+      </form>
+    </div>
+  </mat-tab>
+</mat-tab-group>

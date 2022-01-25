@@ -1,0 +1,67 @@
+<table id="teachers">
+  <tr>
+    <th>Id</th>
+    <th>Photo</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Class</th>
+    <th>Subject</th>
+    <th>Blood Group</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let data of teachers" class="content-list">
+    <td>
+      <p>{{ data?._id }}</p>
+    </td>
+    <td>
+      <img [src]="data?.image" alt="" style="width: 100px" />
+    </td>
+    <td>
+      <p>{{ data?.first_name }} {{ data?.last_name }}</p>
+    </td>
+    <td>
+      <p>{{ data?.gender }}</p>
+    </td>
+    <td>
+      <p>{{ data?.kelas?.class_name }}</p>
+    </td>
+    <td>
+      <p *ngFor="let subject of data?.Subject">
+        {{ subject?.subject_name }}
+      </p>
+    </td>
+    <td>
+      <p>{{ data?.blood_group }}</p>
+    </td>
+    <td>
+      <p>{{ data?.address }}</p>
+    </td>
+    <td>
+      <p>{{ data?.phone }}</p>
+    </td>
+    <td>
+      <p>{{ data?.email }}</p>
+    </td>
+    <td style="width: 100px">
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/teacherdetails/{{ data?._id }}"
+      >
+        Detail
+      </button>
+      <br />
+      <br />
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/teacheredit/{{ data?._id }}"
+      >
+        Edit
+      </button>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,45 @@
+<mat-tab-group>
+  <mat-tab label="All Students">
+    <div class="title">
+      <div class="head"><p>All Student</p></div>
+    </div>
+    <div class="route">
+      <p>Home <span> > All Student</span></p>
+    </div>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+      *ngFor="let data of allStudent"
+      style="padding-bottom: 10px; margin-bottom: 7px"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ data?.first_name }} {{ data?.last_name }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <tr>
+        <p>{{ data?.id }}</p>
+      </tr>
+      <tr>
+        <p>{{ data?.gender }}</p>
+      </tr>
+      <tr>
+        <p>{{ data?.kelas.class_name }}</p>
+      </tr>
+      <tr>
+        <button mat-raised-button routerLink="/studentdetails/{{ data?.id }}">
+          Detail
+        </button>
+        <button mat-raised-button routerLink="/studentedit/{{ data?.id }}">
+          Edit
+        </button>
+      </tr>
+    </mat-expansion-panel>
+  </mat-tab>
+
+  <mat-tab label="{{ kls?.class_name }}" *ngFor="let kls of kelas">
+    <headmaster-student-by-class
+      [parentData]="kls?._id"
+    ></headmaster-student-by-class>
+  </mat-tab>
+</mat-tab-group>

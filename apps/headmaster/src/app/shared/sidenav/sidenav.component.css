@@ -1,0 +1,56 @@
+mat-sidenav-container {
+  height: 100%;
+  background-color: #e0e0e0;
+  color: black;
+}
+mat-sidenav,
+mat-sidenav-content {
+  padding: 16px;
+}
+mat-sidenav {
+  width: 220px;
+  /* background-color: #000000; */
+}
+.menu {
+  cursor: pointer;
+}
+.menu fa {
+  height: 30px;
+}
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 153px;
+  margin: auto;
+}
+.name {
+  height: 20px;
+}
+p {
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 500;
+}
+.list li {
+  list-style: none;
+  margin: 17px 0;
+}
+.list li a {
+  /* color: white; */
+  text-decoration: none;
+  font-size: 20px;
+}
+.list {
+  margin-top: 30px;
+  display: block;
+}
+.list li a:hover {
+  color: rgb(241, 88, 88);
+}
+a.nav-link {
+  cursor: pointer;
+}
+.submenu {
+  background-color: blue;
+}

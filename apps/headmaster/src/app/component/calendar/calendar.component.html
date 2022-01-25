@@ -1,0 +1,20 @@
+<button mat-raised-button color="primary" (click)="openDialog1()">
+  Add Event
+</button>
+
+<mat-list>
+  <mat-list-item *ngFor="let kel of allClass">
+    <mat-checkbox color="primary" (click)="scheduleFilter(kel._id)">{{
+      kel.class_name
+    }}</mat-checkbox>
+  </mat-list-item>
+</mat-list>
+
+<full-calendar
+  id="schedule"
+  *ngIf="calendarVisible"
+  [options]="calendarOptions"
+></full-calendar>
+<button mat-raised-button color="primary" (click)="convertToPDF()">
+  convertToPDF
+</button>

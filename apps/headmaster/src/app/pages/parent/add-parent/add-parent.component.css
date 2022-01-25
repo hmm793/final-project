@@ -1,0 +1,86 @@
+.title {
+  font-size: 30px;
+  font-weight: 500;
+  margin-top: 18px;
+  margin-left: 35px;
+}
+.route {
+  font-size: 15px;
+  margin-top: 25px;
+  margin-left: 40px;
+}
+span {
+  color: #cd3a0e;
+}
+.name-form {
+  font-size: 25px;
+  font-weight: 400;
+  margin-bottom: 28px;
+  margin-top: 70px;
+}
+.box-form {
+  border: 1px solid;
+  width: 90%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 11px;
+}
+li {
+  list-style: none;
+}
+input[type='date'] {
+  margin: 0 53px;
+}
+select {
+  margin: 0;
+}
+input[type='date'].form-control {
+  margin-left: 0;
+}
+form {
+  width: 70%;
+  margin: 0 auto;
+}
+.gender span {
+  color: #212529;
+}
+.mat-tab-label {
+  color: black !important;
+}
+.save {
+  height: 60px;
+  width: 97px;
+  margin: 0 11px;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  background: #dda705;
+  border: none;
+  box-shadow: 4px 5px lightgrey;
+}
+.reset {
+  height: 60px;
+  width: 97px;
+  margin: 0 11px;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  background: #fff;
+  border: none;
+}
+.reset:hover {
+  background: #dda705;
+}
+button p {
+  font-family: sans-serif;
+  font-weight: bolder;
+  letter-spacing: 0.1rem;
+}
+.button {
+  margin-top: 10px;
+}
+small {
+  display: block;
+  margin-bottom: 10px;
+  color: red;
+}

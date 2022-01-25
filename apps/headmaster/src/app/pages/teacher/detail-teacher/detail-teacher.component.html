@@ -1,0 +1,84 @@
+<div class="title-profil">
+  <p>Teacher Detail</p>
+</div>
+<div class="container-detail">
+  <div class="box-detail">
+    <div class="profil">
+      <div class="photo">
+        <img class="photo-profil" src="{{ teacherData.image }}" alt="" />
+      </div>
+    </div>
+    <div class="bio">
+      <div class="edit">
+        <a routerLink="/teacheredit/{{ teacherData._id }}">
+          <button mat-raised-button color="primary">Edit Profil</button>
+        </a>
+      </div>
+      <div class="name-profil" disabled="true">
+        <p>{{ teacherData.first_name }}</p>
+      </div>
+      <div class="box-name">
+        <div class="name1">ID :</div>
+        <div class="name2" name="id" disabled="true">{{ teacherData._id }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Name</span> :</div>
+        <div class="name2">
+          {{ teacherData.first_name }} {{ teacherData.last_name }}
+        </div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Gender</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.gender }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Date of Birth</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.date_of_birth }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Blood Group</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.blood_group }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Religion</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.religion }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Email</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.email }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Addmission Date</span> :</div>
+        <div class="name2" disabled="true">
+          {{ teacherData.addmission_date }}
+        </div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Address</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.address }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Phone</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.phone }}</div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Homeroom For Class</span> :</div>
+        <div class="name2" disabled="true">
+          {{ teacherData.kelas.class_name }}
+        </div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Subject</span> :</div>
+        <div class="name2" disabled="true">
+          <ul>
+            <li *ngFor="let subj of teacherData.Subject">{{ subj }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="box-name">
+        <div class="name1"><span>Short Bio</span> :</div>
+        <div class="name2" disabled="true">{{ teacherData.short_bio }}</div>
+      </div>
+    </div>
+  </div>
+</div>

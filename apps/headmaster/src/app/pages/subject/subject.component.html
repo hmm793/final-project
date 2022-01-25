@@ -1,0 +1,212 @@
+<!-- <mat-tab-group>
+  <mat-tab label="All Students">
+    <div class="container-table">
+      <form [formGroup]="form!">
+        <div class="name-form"><p>Add New Subject</p></div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >Subject Name</label
+          >
+          <input
+            formControlName="subject_name"
+            type="text"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label"
+            >duration</label
+          >
+          <input formControlName="duration" type="text" class="form-control" />
+        </div>
+
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Teacher</mat-label>
+            <mat-select formControlName="teacher_id">
+              <mat-option
+                value="{{ data.teacher_id?._id }}"
+                *ngFor="let data of subject"
+                >{{ data.teacher_id?._id }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <button class="save" (click)="submitData()"><p>Save</p></button>
+        <button class="reset"><p>Reset</p></button>
+      </form>
+    </div>
+
+    <div class="title">
+      <div class="head"><p>All Subject</p></div>
+    </div>
+    <div class="route">
+      <p>Home <span> > All Subject</span></p>
+    </div>
+    <div class="container-table">
+      <table>
+        <tr class="header">
+          <th>
+            <p>Id</p>
+          </th>
+          <th>
+            <p>Subject</p>
+          </th>
+          <th>
+            <p>Teacher</p>
+          </th>
+          <th>
+            <p>Phone</p>
+          </th>
+          <th>
+            <p>E mail</p>
+          </th>
+          <th>
+            <p>Duration</p>
+          </th>
+          <th>
+            <p>Action</p>
+          </th>
+        </tr>
+        <tr *ngFor="let data of subject">
+          <td>
+            <p>{{ data.id }}</p>
+          </td>
+          <td>
+            <p>{{ data.subject_name }}</p>
+          </td>
+          <td>
+            <p>
+              {{ data.teacher_id?.first_name }} {{ data.teacher_id?.last_name }}
+            </p>
+          </td>
+          <td>
+            <p>{{ data.teacher_id?.phone }}</p>
+          </td>
+          <td>
+            <p>{{ data.teacher_id?.email }}</p>
+          </td>
+          <td>
+            <p>{{ data.duration }} menit</p>
+          </td>
+          <td>
+            <button (click)="deleteSubject(data._id)">Delete</button>
+            <button routerLink="/subject/{{ data._id }}">Edit</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </mat-tab>
+</mat-tab-group> -->
+
+<div class="container">
+  <form [formGroup]="form!">
+    <div class="row">
+      <div class="col-25">
+        <label for="subject_name">Subject Name</label>
+      </div>
+      <div class="col-75">
+        <input
+          formControlName="subject_name"
+          type="text"
+          id="subject_name"
+          name="subject_name"
+          placeholder="Subject name.."
+        />
+      </div>
+
+      <small *ngIf="subjectForm['subject_name'].invalid && isSubmitted"
+        >*Subject Name is required</small
+      >
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="duration">Duration</label>
+      </div>
+      <div class="col-75">
+        <input
+          formControlName="duration"
+          type="text"
+          id="duration"
+          name="duration"
+          placeholder="Duration time in minute.."
+        />
+      </div>
+      <small *ngIf="subjectForm['duration'].invalid && isSubmitted"
+        >*Duration is required</small
+      >
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label for="link">Link</label>
+      </div>
+      <div class="col-75">
+        <input
+          formControlName="link"
+          type="text"
+          id="link"
+          name="link"
+          placeholder="Link to the classroom.."
+        />
+      </div>
+      <small *ngIf="subjectForm['link'].invalid && isSubmitted"
+        >*Link is required</small
+      >
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="country">Teacher</label>
+      </div>
+      <div class="col-75">
+        <select
+          id="country"
+          name="country"
+          formControlName="teacher_id"
+          [(ngModel)]="selectedTeacher"
+        >
+          <option value="{{ teacher._id }}" *ngFor="let teacher of teacherData">
+            {{ teacher.first_name }} {{ teacher.last_name }}
+          </option>
+        </select>
+      </div>
+      <small *ngIf="subjectForm['teacher_id'].invalid && isSubmitted"
+        >*Teacher is required</small
+      >
+    </div>
+    <br />
+    <div class="row">
+      <button mat-raised-button (click)="submitData()">Submit</button>
+    </div>
+  </form>
+</div>
+
+<br /><br />
+
+<table id="subjects">
+  <tr>
+    <th>Id</th>
+    <th>Subject</th>
+    <th>Teacher</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Duration</th>
+    <th>Link</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let data of subject">
+    <td>{{ data.id }}</td>
+    <td>{{ data.subject_name }}</td>
+    <td>{{ data.teacher_id?.first_name }} {{ data.teacher_id?.last_name }}</td>
+    <td>{{ data.teacher_id?.phone }}</td>
+    <td>{{ data.teacher_id?.email }}</td>
+    <td>{{ data.duration }} menit</td>
+    <td>{{ data.link }}</td>
+    <td>
+      <button (click)="deleteSubject(data._id)">Delete</button>
+      <button routerLink="/subject/{{ data._id }}">Edit</button>
+    </td>
+  </tr>
+</table>
